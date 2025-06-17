@@ -152,52 +152,64 @@ backend:
 
 frontend:
   - task: "Web Speech API Integration for Voice Input"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "App.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装ブラウザの音声認識機能"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented Web Speech API integration with Japanese language support. Voice input converts to text and sends to backend."
 
   - task: "Audio Playback System for TTS Response"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "App.js"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装VOICEVOX からの音声データ再生"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented audio playback system that converts base64 audio to blob and plays VOICEVOX generated speech."
 
   - task: "User Interface for Voice Chat"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "App.js, App.css"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装音声チャット用のUI設計"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented responsive voice chat UI with real-time messages, voice controls, and listening indicators."
 
   - task: "OpenAI API Key Configuration UI"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "App.js"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装ユーザがAPIキーを入力できるUI"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented secure API key input UI with validation and setup flow."
 
 metadata:
   created_by: "main_agent"
