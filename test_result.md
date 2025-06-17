@@ -106,40 +106,49 @@ user_problem_statement: "ユーザがPCのマイクから話書けると、そ�
 
 backend:
   - task: "OpenAI LLM Integration with gpt-4o"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装OpenAI API统合using emergentintegrations library"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented OpenAI gpt-4o integration using emergentintegrations library with LlmChat class. Chat endpoint at /api/chat accepts user text and API key, returns LLM response."
 
   - task: "VOICEVOX API Integration for Zundamon TTS"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "server.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装VOICEVOX API统合for Japanese TTS with Zundamon voice"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented VOICEVOX API integration using demo server with Zundamon voice (speaker_id=3). Audio returned as base64 encoded data."
 
   - task: "Chat Session Management and Database Storage"
-    implemented: false
+    implemented: true
     working: "NA"
     file: "server.py"
     stuck_count: 0
     priority: "medium"
-    needs_retesting: false
+    needs_retesting: true
     status_history:
       - working: "NA"
         agent: "main"
         comment: "需要实装チャット履歴の保存とセッション管理"
+      - working: "NA"
+        agent: "main"
+        comment: "Implemented MongoDB chat history storage with session-based management. Added endpoints for getting and clearing chat history."
 
 frontend:
   - task: "Web Speech API Integration for Voice Input"
