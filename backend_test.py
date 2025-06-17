@@ -68,21 +68,32 @@ class VoiceChatAPITester:
             # Test empty text validation
             response = requests.post(
                 f"{self.api_url}/chat",
-                json={"text": "", "session_id": self.session_id, "openai_api_key": MOCK_OPENAI_API_KEY}
+                json={"text": "   ", "session_id": self.session_id, "openai_api_key": MOCK_OPENAI_API_KEY}
             )
-            if response.status_code != 400:
-                return self.log_test("Chat Endpoint Validation", False, "Empty text validation failed")
+            empty_text_valid = False
+            if response.status_code == 400:
+                empty_text_valid = True
+                self.log_test("Empty Text Validation", True, "Empty text validation passed")
+            else:
+                self.log_test("Empty Text Validation", False, f"Empty text validation failed with status {response.status_code}")
             
             # Test missing API key validation
             response = requests.post(
                 f"{self.api_url}/chat",
                 json={"text": "Hello", "session_id": self.session_id, "openai_api_key": ""}
             )
-            if response.status_code != 400:
-                return self.log_test("Chat Endpoint Validation", False, "Missing API key validation failed")
+            missing_key_valid = False
+            if response.status_code == 400:
+                missing_key_valid = True
+                self.log_test("Missing API Key Validation", True, "Missing API key validation passed")
+            else:
+                self.log_test("Missing API Key Validation", False, f"Missing API key validation failed with status {response.status_code}")
             
-            self.results["chat_endpoint_validation"] = True
-            return self.log_test("Chat Endpoint Validation", True, "Input validation is working correctly")
+            if empty_text_valid and missing_key_valid:
+                self.results["chat_endpoint_validation"] = True
+                return self.log_test("Chat Endpoint Validation", True, "Input validation is working correctly")
+            else:
+                return self.log_test("Chat Endpoint Validation", False, "One or more validation checks failed")
         except Exception as e:
             return self.log_test("Chat Endpoint Validation", False, f"Exception: {str(e)}")
     
