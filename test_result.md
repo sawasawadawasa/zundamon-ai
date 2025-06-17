@@ -101,3 +101,110 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "ユーザがPCのマイクから話書けると、その内容をLLMへ引き渡し、会話のような回答を生成。生成された内容はVOICEVOXのずんだもんの音声で返事をしてくれるツール"
+
+backend:
+  - task: "OpenAI LLM Integration with gpt-4o"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装OpenAI API统合using emergentintegrations library"
+
+  - task: "VOICEVOX API Integration for Zundamon TTS"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装VOICEVOX API统合for Japanese TTS with Zundamon voice"
+
+  - task: "Chat Session Management and Database Storage"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装チャット履歴の保存とセッション管理"
+
+frontend:
+  - task: "Web Speech API Integration for Voice Input"
+    implemented: false
+    working: "NA"
+    file: "App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装ブラウザの音声認識機能"
+
+  - task: "Audio Playback System for TTS Response"
+    implemented: false
+    working: "NA"
+    file: "App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装VOICEVOX からの音声データ再生"
+
+  - task: "User Interface for Voice Chat"
+    implemented: false
+    working: "NA"
+    file: "App.js, App.css"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装音声チャット用のUI設計"
+
+  - task: "OpenAI API Key Configuration UI"
+    implemented: false
+    working: "NA"
+    file: "App.js"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "需要实装ユーザがAPIキーを入力できるUI"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "OpenAI LLM Integration with gpt-4o"
+    - "VOICEVOX API Integration for Zundamon TTS"
+    - "Web Speech API Integration for Voice Input"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Starting implementation of voice chat app with OpenAI gpt-4o and VOICEVOX Zundamon TTS. Will begin with backend API integrations first."
